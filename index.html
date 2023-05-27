@@ -1,18 +1,155 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body{
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: var(--th-theme-text-color);
+    background: var(--th-theme-text-color;
+    }
+
+    #main{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    }
+
+    h1{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    }
+
+    img{
+    width: 70px;
+    margin: 30px;
+    }
+
+    p{
+    width: 350px;
+    margin: 0 auto;
+    }
+
+    button{
+    border: 0;
+    border-radius: 5px;
+    margin-top: 50px;
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 500ms ease;
+    color: var(--th-theme-text-color;
+    background: var(--th-theme-text-color;
+    }
+
+    button:hover{
+        background: var(--th-theme-text-color;
+    }
+
+    #form{
+    display: none;
+    text-align: center;
+    }
+
+
+    input{
+    width: 90%;
+    outline: none;
+    margin: 10px 5%;
+    padding: 15px 10px;
+    font-size: 14px;
+    border: 2px solid silver;
+
+    }
+
+    input:focus{
+    border-color: #db5d5d;
+    }
+
+
+
+    </style>
+
 </head>
-
 <body>
-  <div>
-    <h1>Онлайн убиваю</h1>
-    <p>Lorem ipsum</p>
-    <button id="buy">Заказать</button>
-  </div>
-</body>
+    <div id="main">
+        <h1>Онлайн магазин</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png" alt="">
+        <p>Lorem ipsum</p>
+        <button id="buy">Купить</button>
+    </div>
 
+    <form id="form">
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Телефон" id="user_phone">
+        <div id="error"></div>
+        <button id="order">Оформить</button>
+    </form>
+
+    <script src="5849128559:AAHGoDsHxRZTJP-EZ_e6gWr_yBlyM-z2WGk"></script>
+
+    
+
+    <script>
+    let tg = window.Telegram.WebApp;
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
+    tg.expand();
+    buy.addEventListener("cilck", () => {
+    document.getElementById("form").style.display = "block";
+    document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
+
+
+
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
+    
+
+    buy.addEventListener("click", () => {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("form").style.display = "block";
+
+    });
+
+    order.addEventListener("click", () => {
+        document.getElementById("error").innerText = '';
+        let name = document.getElementById("user_name").value;
+        let email = document.getElementById("user_email").value;
+        let phone = document.getElementById("user_phone").value;
+        if (name.length < 5) {
+            document.getElementById("error").innerText = "Ошибка в имени";
+            return;
+        }
+
+        if (email.length < 5) {
+            document.getElementById("error").innerText = "Ошибка в email";
+            return;
+        }
+
+        if (phone.length < 5) {
+            document.getElementById("error").innerText = "Ошибка в номере телефона";
+            return;
+        }
+        
+    });
+
+
+
+    </script>
+</body>
 </html>
